@@ -70,6 +70,9 @@ function populatePartDetails(partId)
             {
               imageLink = defaultLink;
             }
+            else {
+              imageLink = "/xlr8-frc/"+imageLink;
+            }
 
             var img = document.createElement("img");
             img.setAttribute("class","card-img-top card-img-bg ");

@@ -538,13 +538,13 @@ $(document).ready(function() {
                               '</td>';
                 table_body += '</tr>';
             });
-            $('tbody','#add_parts_table').html(table_body);
             
             $("[role='qty']").prop('selectedIndex', 0);
             if($.fn.dataTable.isDataTable("#add_parts_table")){
                 $('#add_parts_table').DataTable().destroy();
                 $('tbody','#add_parts_table').html("");
             }
+            $('tbody','#add_parts_table').html(table_body);
             $('#add_parts_table').DataTable({
                 searching: false,
                 info: false,

@@ -1,14 +1,14 @@
 <?php
     /*------------ DB CONFIGURATIONS -----------*/
-    // define('DBUSER','root');
-    // define('DBPWD','root123');
-    // define('DBHOST','127.0.0.1');
-    // define('DBNAME','sql12291931');
+     define('DBUSER','root');
+     define('DBPWD','root123');
+     define('DBHOST','127.0.0.1');
+     define('DBNAME','sql12291931');
 
-    define('DBUSER','sql12291931');
-    define('DBPWD','uw6XYp3L8W');
-    define('DBHOST','sql12.freesqldatabase.com');
-    define('DBNAME','sql12291931');
+//    define('DBUSER','sql12291931');
+//    define('DBPWD','uw6XYp3L8W');
+//    define('DBHOST','sql12.freesqldatabase.com');
+//    define('DBNAME','sql12291931');
 
     
     class DBManager {

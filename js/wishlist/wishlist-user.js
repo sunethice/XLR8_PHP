@@ -13,7 +13,8 @@ function saveToWishList()
     if(partName=="" || weight == "" || cost == "" || quantity =="" || justification == ""
     || vendor=="" || vendorReference=="")
     {
-        alert("please fill all fields");
+       
+        alert('Oops!', 'error', "please fill all fields!");
     }
     else{
     var params = "partName="+partName+"&weight="+weight+"&cost="+cost+"&vendor="+vendor+
@@ -37,11 +38,11 @@ function saveToWishList()
 
             if(resultSet=="success")
             {
-                alert('Successfully added to the wishlist!');
+                alert('Yay!', 'success', "successfully added!");
             }
             else
             {
-                alert('Something went wrong!');
+                alert('Oops!', 'error', "Something went wrong!");
             }
         }
     }
@@ -51,6 +52,7 @@ function saveToWishList()
 
 function loadPartsTable(){
    // Delete();
+   checkUserDetails();
     if (window.XMLHttpRequest)
     xHRObject3 = new XMLHttpRequest();
     else if (window.ActiveXObject)
@@ -127,9 +129,11 @@ function loadPartsTable(){
 
                     $('#wishListTable').dataTable().fnClearTable();
                    loadPartsTable()
+                   alert('Yay!', 'success', "Successfully deleted!");
                  }
                  else{
-                     alert("Error occured while deleting");
+                  
+                     alert('Oops!', 'error', "Error occured while deleting!");
                  }
              }
             }

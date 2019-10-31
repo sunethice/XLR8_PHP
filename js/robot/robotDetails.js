@@ -90,6 +90,7 @@ function loadComponentData(robotId) {
 }
 
 function loadComponents() {
+  
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
@@ -207,8 +208,22 @@ function createDataTable(robotComponents) {
         button.innerHTML = 'More Details';
         button.className = 'btn btn-primary';
         button.addEventListener("click", function() {
-            alert("You clicked " + key);
+
+          var returnVal = confirmAlert('Redirecting...', 'info', "You will be redirected to the component : " + key, goToComp);
+            // // localStorage.setItem('compId', key);
+            // if(returnVal == true)
+            // {
+            //   console.log("hey");
+            //   window.location.href = "components.html?id="+key;
+            // }
+
+
         });
+
+        function goToComp()
+        {
+          window.location.href = "components.html?id="+key;
+        }
 
         thButton = document.createElement('td');
         thButton.appendChild(button);
@@ -254,7 +269,7 @@ function createDataTable(robotComponents) {
 
 function createComponentList(components) {
 
-    /**     
+    /**
         <a href="#" class="list-group-item">
                 <h6 class="list-group-item-heading">First List Group Item Heading</h6>
                 <p class="list-group-item-text">List Group Item Text</p>
@@ -290,7 +305,7 @@ function createComponentList(components) {
 
             $('.list-group-item').on('click', function() {
                 var $this = $(this);
-            
+
                 $('.active').removeClass('active');
                 $this.toggleClass('active')
 
@@ -325,10 +340,10 @@ document.getElementById("component_submit").addEventListener("click", function()
             if (this.readyState == 4 && this.status == 200) {
                 //alert(this.responseText);
                 var response = JSON.parse(this.responseText);
-                
+
                 if(response=="true")
                 {
-                    alert("Component added successfully!");  
+                    alert("Component added successfully!");
                     location.reload();
                 }
                 else
@@ -379,10 +394,10 @@ function checkTotalWeight(componetId) {
             }
 
             // var response = JSON.parse(this.responseText);
-            
+
             // if(response=="true")
             // {
-            //     alert("Component added successfully!");  
+            //     alert("Component added successfully!");
             //     location.reload();
             // }
             // else
@@ -448,10 +463,10 @@ document.getElementById("robot_edit_submit").addEventListener("click", function(
                             if (this.readyState == 4 && this.status == 200) {
                                 //alert(this.responseText);
                                 var response = JSON.parse(this.responseText);
-                                
+
                                 if(response=="true")
                                 {
-                                    alert("Robot edited successfully!");  
+                                    alert("Robot edited successfully!");
                                     location.reload();
                                 }
                                 else
@@ -463,8 +478,8 @@ document.getElementById("robot_edit_submit").addEventListener("click", function(
                         };
                         $("#editRobotModal").modal("hide");
                         xhttp.send(formData);
-                        //var modal = document.getElementById('robotModal');    
-                        
+                        //var modal = document.getElementById('robotModal');
+
                     }
                 }
             }
@@ -494,10 +509,10 @@ document.getElementById("change_image_submit").addEventListener("click", functio
             if (this.readyState == 4 && this.status == 200) {
                 //alert(this.responseText);
                 var response = JSON.parse(this.responseText);
-                
+
                 if(response=="true")
                 {
-                    alert("Robot Image Changed successfully!");  
+                    alert("Robot Image Changed successfully!");
                     location.reload();
                 }
                 else
@@ -509,12 +524,12 @@ document.getElementById("change_image_submit").addEventListener("click", functio
         };
         $("#robotModal").modal("hide");
         xhttp.send(formData);
-        //var modal = document.getElementById('robotModal');    
+        //var modal = document.getElementById('robotModal');
     }
-                    
+
 });
 
-document.getElementById("robotDeleteRequest").addEventListener("click", function() 
+document.getElementById("robotDeleteRequest").addEventListener("click", function()
 {
     // $("#deleteModel").modal("hide");
     // alert("Robot deleted");
@@ -559,7 +574,7 @@ document.getElementById("robotDeleteRequest").addEventListener("click", function
 });
 
 
-function deleteRobotComponent(componentId) 
+function deleteRobotComponent(componentId)
 {
     var formData = new FormData();
 
@@ -574,10 +589,10 @@ function deleteRobotComponent(componentId)
             //alert(this.responseText);
 
             var response = JSON.parse(this.responseText);
-                
+
             if(response=="true")
             {
-                alert("Component successfully deleted!");  
+                alert("Component successfully deleted!");
                 location.reload();
             }
             else
@@ -591,3 +606,4 @@ function deleteRobotComponent(componentId)
     xhttp.send(formData);
 
 }
+

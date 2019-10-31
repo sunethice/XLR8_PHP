@@ -4,8 +4,8 @@ require_once('xlr8_utils.php');
 require_once('dbConnect.php');
 session_start();
 
-$_SESSION['userdetails']['userId']="USR_1";
-$userId = $_SESSION['userdetails']['userId'];
+//$_SESSION['userdetails']['userId']="USR_1";
+$userId = $_SESSION['userdetails']['user_id'];
 
 if( (isset($_POST['partName'])) && (isset($_POST['weight'])) && (isset($_POST['cost'])) && (isset($_POST['vendor'])) &&
    (isset($_POST['qty'])) )
@@ -65,17 +65,21 @@ if( (isset($_POST['partName'])) && (isset($_POST['weight'])) && (isset($_POST['c
   {
     $count = count($_FILES['resources']['name']);
     $j = 0;
-
-    $resourceFolder = $resourceFolder.$new_id."/";
+    $resourcePath = $resourceFolder.$new_id."/";
+    $resourceFolder = $currentFolder.$resourceFolder.$new_id."/";
+   
     if(!mkdir($resourceFolder, 0777, true))
     {
       echo "Failed\n";
       die('Failed to create folder');
     }
     for ($i = 0; $i < $count; $i++) {
-        if(move_uploaded_file($_FILES['resources']['tmp_name'][$i], $currentFolder.$resourceFolder.$_FILES['resources']['name'][$i]))
+     //echo "1".$_FILES['resources']['tmp_name'][$i];
+     //echo "2".$resourceFolder.$_FILES['resources']['name'][$i]; 
+        if(move_uploaded_file($_FILES['resources']['tmp_name'][$i],$resourceFolder.$_FILES['resources']['name'][$i]))
          {
-           $linkToResourceFiles[$j] = $resourceFolder.$_FILES['resources']['name'][$i];
+          // echo $linkToResourceFiles[$j]; 
+           $linkToResourceFiles[$j] = $resourcePath.$_FILES['resources']['name'][$i];
            $j++;
          }
     }
@@ -101,7 +105,7 @@ if( (isset($_POST['partName'])) && (isset($_POST['weight'])) && (isset($_POST['c
             for($i=0; $i<sizeOf($linkToResourceFiles);$i++)
             {
               $new_res_id = createUniqueId($con, 'part_resources');
-echo $linkToResourceFiles[$i];
+//echo $linkToResourceFiles[$i];
               $query = "INSERT INTO part_resources (resource_id,part_id,resource_link)
                         VALUES ('$new_res_id','$new_id','$linkToResourceFiles[$i]' )";
 

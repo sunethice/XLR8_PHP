@@ -9,7 +9,7 @@ else if (window.ActiveXObject)
 
 function retrieveInformation() 
 {
-	
+	checkUserDetails();
       xHRObject.open("GET", "server/userInformation.php?id=" + Number(new Date), true);
       xHRObject.onreadystatechange = function() {
            if (xHRObject.readyState == 4 && xHRObject.status == 200)

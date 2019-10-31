@@ -26,6 +26,7 @@
 * Creates the alert of given type
 * type can be success, error, info
 */
+
 function alert(title, type, body)
 {
 	Swal.fire({
@@ -71,20 +72,21 @@ function createAlertBody(successArr, errorArr)
 	return body;
 }
 
-function confirmAlert()
+function confirmAlert(title, type, text, thisFunc)
 {
 	Swal.fire({
-  title: 'Are you sure?',
-  text: "You won't be able to revert this!",
-  type: 'warning',
+  title: title,
+  text: text,
+  type: type,
   showCancelButton: true,
   confirmButtonColor: '#3085d6',
   cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, delete it!'
+  confirmButtonText: 'OK'
 	}).then((result) =>
 	{
 		  if (result.value)
 			{
+				thisFunc();
 				console.log("true");
 		  	return true;
 		  }

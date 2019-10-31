@@ -12,9 +12,9 @@ function getCategories($id, $con)
   {
     $query = "SELECT * FROM category WHERE parent= '$id' ";
   }
-  
+
   $result = $con->query($query);
-  
+
   $resultArr = array();
 
   if ($result->num_rows > 0) {
@@ -22,12 +22,12 @@ function getCategories($id, $con)
       // output data of each row
       while ($row = $result->fetch_assoc())
       {
-        $formattedImg = explode("htdocs", $row['image']);
+        //$formattedImg = explode("htdocs", $row['image']);
         $tempArray = array(
                 'name' => $row['category_name'],
                 'level' => $row['level'],
                 'parent'=> $row['parent'],
-                'image' => $formattedImg[1]
+                'image' => $row['image']
         );
         $resultArr[$row['category_id']] = $tempArray;
       }
@@ -52,10 +52,10 @@ function getCategories($id, $con)
       if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc())
         {
-          $formattedImg = explode("htdocs", $row['image']);
+          //$formattedImg = explode("htdocs", $row['image']);
           $tempArray = array(
                   'name' => $row['part_name'],
-                  'image' => $formattedImg[1]
+                  'image' => $row['image']
           );
           $resultArr[$row['part_id']] = $tempArray;
         }

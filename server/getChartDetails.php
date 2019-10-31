@@ -107,8 +107,8 @@ function getPartDistribution($con)
 
 function getRobotTimeFrame($con)
 {
-  $query = "SELECT robot_id, robot_name, season, max_weight, max_cost, competition_end_date, date_of_creation
-            FROM robot ";
+  $query = "SELECT robot_id, robot_name, season, max_weight, max_cost, competition_end_date, CreatedDate
+            FROM robot ORDER BY CreatedDate ";
   $result = $con->query($query);
   $resultArr = array();
   $today = date();
@@ -149,7 +149,7 @@ function getRobotDetails($con)
   $resultArr['endDate']= $robot[0]['competition_end_date'];
   $resultArr['MaxWeight']= $robot[0]['max_weight'];
   $resultArr['MaxCost']= $robot[0]['max_cost'];
-  $resultArr['createdDate']= $robot[0]['date_of_creation'];
+  $resultArr['createdDate']= $robot[0]['CreatedDate'];
 
   $resultArr['weight']= 0;
   $resultArr['cost']= 0;

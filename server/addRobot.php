@@ -6,7 +6,8 @@ include("dbConnect.php");
 if ((isset($_POST['name'])) && (isset($_POST['season'])) && (isset($_POST['maxWeight'])) && (isset($_POST['totalCost'])) && (isset($_POST['compEnteredDate'])) && (isset($_FILES['image'])))
 {
     //$imagePath = 'C:\\xampp\\htdocs\\XLR8\\images\\';
-    $imagePath ='/Applications/MAMP/htdocs/xlr8-frc/images/';
+    $pathBack = '/Applications/MAMP/htdocs/xlr8-frc/';
+    $imagePath ='images/';
     $robotName = $_POST['name'];
     $season = $_POST['season'];
     $maxWeight = $_POST['maxWeight'];
@@ -15,7 +16,7 @@ if ((isset($_POST['name'])) && (isset($_POST['season'])) && (isset($_POST['maxWe
     //echo $compEndDate;
 
     $image = $_FILES['image']['name'];
-    if(move_uploaded_file($_FILES['image']['tmp_name'], $imagePath.$image))
+    if(move_uploaded_file($_FILES['image']['tmp_name'], $pathBack.$imagePath.$image))
     {
        // $conn = OpenCon();
        $conn=$con;
@@ -30,7 +31,7 @@ if ((isset($_POST['name'])) && (isset($_POST['season'])) && (isset($_POST['maxWe
             echo json_encode("false");
         }
         CloseCon($conn);
-    } 
+    }
 }
 else
 {
@@ -47,22 +48,22 @@ function OpenCon()
     {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
-  
+
     return $con;
  }
- 
+
 function CloseCon($conn)
 {
     $conn -> close();
 }
 
-function getID($conn) 
+function getID($conn)
 {
     $query = "select count(1) as count from robot";
     $queryResults = @mysqli_query($conn, $query)
     Or die ("<p>Unable to query the $TableName table.</p>"."<p>Error code ". mysqli_errno($conn). ": ".mysqli_error($DBConnect)). "</p>";
     $row = mysqli_fetch_row($queryResults);
-    
+
     $idNo =  $row[0] + 1;
     $ID = "RBT_".$idNo;
     return $ID;

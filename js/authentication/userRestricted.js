@@ -14,6 +14,11 @@ function checkUserDetails()
                 window.location.href ="login.html"; 
             }
             document.getElementById("demo").innerHTML = resultSet["fName"]
+            if(resultSet["userType"]== "member")
+            {
+                //alert("here")
+                window.location.href ="index.html";            
+            }
             if(resultSet["userType"]== "admin")
             {
                 //alert("here")
@@ -25,24 +30,4 @@ function checkUserDetails()
   }
   xHRO.send(null);   
  
-}
-function logout()
-{
-    xHRObject = new XMLHttpRequest();
-    xHRObject.open("GET", "server/logout.php", true);
-    xHRObject.onreadystatechange = function() {
-       if (xHRObject.readyState == 4 && xHRObject.status == 200)
-        var resultSet = JSON.parse(xHRObject.responseText);
-        if(resultSet == "1")
-        {
-            window.location.href ="login.html";
-        }
-        else
-        {
-            window.location.href ="index.html";
-        }
-
-  }
-  xHRObject.send(null);
-
 }
