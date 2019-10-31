@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>XLR8 - Parts</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+
+  <!-- javascript calls -->
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="js/authentication/loggedIn.js"></script>
+
+
+</head>
+
+<body id="page-top">
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="index.html">XLR8</a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <li class="nav-item dropdown no-arrow"  aria-expanded="false">
+
+      </li>
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="demo"></span>
+
+          <i class="fas fa-user-circle fa-fw" title="User profile" data-toggle="tooltip">
+          </i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+        
+
+          <a class="dropdown-item" href="wishlist.html">WishList</a>
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="inventoryStore.html">
+          <i class="fas fa-car-battery"></i>
+          <span>Inventory Store</span></a>
+      </li>
+
+      <li class="nav-item ">
+        <a class="nav-link" href="parts.html">
+          <i class="fas fa-fw fa-tools"></i>
+          <span>Parts</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="robots.html">
+          <i class="fas fa-fw fa-robot"></i>
+          <span>Robots</span></a>
+      </li>
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+
+        <ol class="breadcrumb py-3 flex-row align-items-center justify-content-between">
+          <li class="breadcrumb-item">
+            <a href="inventoryStore.html">Inventory Store</a><span> / </span>
+            <a id="cat1">/</a><span> / </span>
+            <a id="cat2">/</a><span> / </span>
+            <a id="cat3">/</a><span> / </span>
+            Single Product Details
+          </li>
+          <div class="dropdown no-arrow align-items-end" >
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" data-toggle="modal" data-target="#editPartModal" id="editPart" href="#">Edit a Part</a>
+              <a class="btn btn-danger dropdown-item" id="deletePart" href="#">Delete a Part</a>
+              <a class="btn btn-danger dropdown-item" data-toggle="modal" data-target="#notesListModal" id="notesList" href="#">View condition notes</a>
+              <!-- <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a> -->
+            </div>
+          </div>
+        </ol>
+
+       <div class = "card">
+        <div class = "row productDetails" id="productDetails" style="margin:10px">
+          <div class="col-md-4" id="partImageSide" >
+              <img id="image"/>
+          </div>
+          <div class="col-md-8" id="partDetailSide">
+            <div class="card-block">
+            <h4 class="card-title" id="title"></h4>
+            <p class="card-text"><span id="desc"></span></p>
+            <p class="card-text">Weight:  <span id="weight"> kg</span></p>
+            <p class="card-text">Cost:  $<span id="cost"></span></p>
+            <p class="card-text">Available Quantity:  <span id="qty"></span></p>
+            <p class="card-text">Vendor Reference:  <span id="vendor"></span></p>
+            <p class="card-text">Other:  <span id="other"></span></p>
+            <p class="card-text">Availability:  <span id="availability"></span></p>
+            <p class="card-text">Resources: <span id="resources"></span></p>
+
+            </div>
+            <div class = "row">
+              <div class="col-md-3">
+                <a href="#" id="addQuantity" class="btn btn-primary btn-block" data-toggle="modal" data-target="#quantityModal">Add more quantity</a>
+              </div>
+              <div class="col-md-3">
+                <a href="#" id="addNotes" class="btn btn-primary btn-block" data-toggle="modal" data-target="#notesModal">Add condition notes</a>
+              </div>
+              <div class="col-md-3">
+                <a href="#" id= "addComponent" class="btn btn-primary btn-block">Add to a component</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+       </div>
+      </div>
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+              <span>Copyright © XLR8 2019</span>
+              <br />
+            <span>Icons made by
+              <a href="https://www.flaticon.com/authors/surang" title="surang">surang</a> from
+              <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by
+              <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+           </span>
+
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <button class="btn btn-primary" onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add quantity Modal -->
+<div class="modal fade" id="quantityModal">
+  <div class="modal-dialog modal-dialog-scrollable ">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add more quantity to this part</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+          <div class="form-group row">
+            <label class="col-md-4" for="part_name_ref">Name:</label>
+            <div class="col-md-8">
+              <input type="text" class="form-control" id="part_name_ref" placeholder="" disabled>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-4" for="vendor_ref">Vendor Reference:</label>
+            <div class="col-md-8">
+              <input type="text" class="form-control" id="vendor_ref" placeholder="" disabled>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-4" for="weight">Quantity:</label>
+            <div class="col-md-8">
+              <input type="number" min="1" class="form-control" id="newQuantity" placeholder="">
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="submit" id="part_quantity_submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- End of Add quantity modal -->
+
+<!-- Add condition notes Modal -->
+<div class="modal fade" id="notesModal">
+<div class="modal-dialog modal-dialog-scrollable ">
+  <div class="modal-content">
+
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <h4 class="modal-title">Add notes about the condition of this part</h4>
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+
+    <!-- Modal body -->
+    <div class="modal-body">
+      <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+        <div class="form-group row">
+          <label class="col-md-4" for="part_name_ref_2">Name:</label>
+          <div class="col-md-8">
+            <input type="text" class="form-control" id="part_name_ref_2" placeholder="" disabled>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="control-label col-md-4" for="notes">Condition Status:</label>
+          <div class="col-md-8">
+            <select class="form-control" id="status" >
+              <option value="Advancement">Advancement</option>
+              <option value="Modification">Modification</option>
+              <option value="Damage">Damage</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="control-label col-md-4" for="notes">Notes:</label>
+          <div class="col-md-8">
+            <input type="textarea" class="form-control" id="notes" placeholder="" >
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Modal footer -->
+    <div class="modal-footer">
+      <button type="submit" id="part_notes_submit" class="btn btn-primary">Submit</button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+    </div>
+
+  </div>
+</div>
+</div>
+<!-- End of Add condition modal -->
+
+<!-- Edit part modal -->
+<div class="modal fade" id="editPartModal">
+<div class="modal-dialog modal-dialog-scrollable ">
+  <div class="modal-content">
+
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <h4 class="modal-title">Edit part details</h4>
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+
+    <!-- Modal body -->
+    <div class="modal-body">
+      <div class="modal-body">
+        <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+          <div class="form-group row">
+            <label class="col-md-4" for="edit_part_name">Name:</label>
+            <div class="col-md-8">
+              <input type="text" class="form-control" id="edit_part_name" placeholder="" >
+                <input type="text" class="form-control" id="edit_part_id" hidden>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-4" for="edit_weight">Weight:</label>
+            <div class="col-md-8">
+              <input type="number" class="form-control" id="edit_weight" placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-4" for="edit_cost">Cost:</label>
+            <div class="col-md-8">
+              <input type="number" class="form-control" id="edit_cost" placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-4" for="edit_description">Description:</label>
+            <div class="col-md-8">
+              <textarea class="form-control rounded-0" id= "edit_description" rows="5"></textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-4" for="mainCat">Level 1 Category:</label>
+            <div class="col-md-8">
+              <select id="mainCat"> </select>
+            </div>
+            <label class="control-label col-md-4" for="subCat">Level 2 Category:</label>
+            <div class="col-md-8">
+              <select id="subCat"> </select>
+            </div>
+            <label class="control-label col-md-4" for="category">Level 3 Category:</label>
+            <div class="col-md-8">
+              <select id="category"> </select>
+            </div>
+
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-4" for="edit_vendor">Vendor Reference:</label>
+            <div class="col-md-8">
+              <input type="text" class="form-control" id="edit_vendor" placeholder="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-4" for="edit_qty">Quantity added:</label>
+            <div class="col-md-8">
+              <input type="number" class="form-control" id="edit_qty" placeholder="" disabled>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-4" for="edit_other">Other dimensions:</label>
+            <div class="col-md-8">
+              <input type="textarea" class="form-control" id="edit_other" placeholder="">
+            </div>
+          </div>
+
+        </form>
+    </div>
+
+    <!-- Modal footer -->
+    <div class="modal-footer">
+      <button type="submit" id="edit_part_submit" class="btn btn-primary">Submit</button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal" onClick="window.location.reload();">Close</button>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+<!-- End of edit part modal -->
+
+<!--Condition notes modal -->
+<div class="modal fade" id="notesListModal">
+<div class="modal-dialog modal-dialog-scrollable modal-lg">
+  <div class="modal-content">
+
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <h4 class="modal-title">Condition Notes</h4>
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+
+    <!-- Modal body -->
+    <div class="modal-body">
+
+       <div class = "row table-responsive" style="margin:10px; padding-right:2em" >
+      <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date Entered</th>
+        <th>Condition Status</th>
+        <th>Remarks</th>
+      </tr>
+    </thead>
+    <tbody id="notesTbl">
+
+    </tbody>
+    </table>
+  </div>
+
+    </div>
+
+    <!-- Modal footer -->
+    <div class="modal-footer">
+
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+    </div>
+
+  </div>
+</div>
+</div>
+<!-- End of condition notes modal -->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
+
+  <!-- Sweet alerts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+  <script type="text/javascript" src="js/alerts.js" ></script>
+
+  <script type="text/javascript" src="js/part/single_part.js" ></script>
+
+</body>
+
+</html>

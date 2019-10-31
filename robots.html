@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>XLR8 - Robot</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+
+  <!-- javascript calls -->
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="js/authentication/loggedIn.js"></script>
+
+
+</head>
+
+<body id="page-top">
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="index.html">XLR8</a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <li class="nav-item dropdown no-arrow"  aria-expanded="false">
+
+      </li>
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="demo"></span>
+
+          <i class="fas fa-user-circle fa-fw" title="User profile" data-toggle="tooltip">
+          </i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+         
+
+          <a class="dropdown-item" href="wishlist.html">WishList</a>
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="inventoryStore.html">
+          <i class="fas fa-car-battery"></i>
+          <span>Inventory Store</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="parts.html">
+          <i class="fas fa-fw fa-tools"></i>
+          <span>Parts</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="robots.html">
+          <i class="fas fa-fw fa-robot"></i>
+          <span>Robots</span></a>
+      </li>
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Robots</li>
+          <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+
+
+      </div>
+
+      </form>
+
+      </ol>
+
+      <div class="row">
+        <div class="col-md-9"></div>
+        <!-- <div class="col-md-3" style="padding-left:2em">
+             <a href="#">Advanced Search</a>
+           </div> -->
+        <div class="col-md-3" style="padding-right:2em">
+          <button class="btn btn-primary float-right" data-toggle="modal" data-target="#robotModal">Add Robot</button>
+        </div>
+      </div>
+
+    <div id="robotCardsHolder" style="margin:20px" class = "row" >
+      <!--<div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>-->
+    </div>
+
+
+
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © XLR8 2019</span>
+            <br />
+            <span>Icons made by
+              <a href="https://www.flaticon.com/authors/surang" title="surang">surang</a> from
+              <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by
+              <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC
+                3.0 BY</a>
+            </span>
+
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+
+
+
+  <!-- Robot Modal -->
+  <div class="modal fade" id="robotModal">
+    <div class="modal-dialog modal-dialog-scrollable ">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add a Robot</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+            <div class="form-group row">
+              <label class="col-md-4" for="robot_name">Name:</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="robot_name" placeholder="" >
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-4" for="robot_season">Season:</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="robot_season" placeholder="" >
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="control-label col-md-4" for="max_weight">Max Weight:</label>
+              <div class="col-md-8">
+                <input type="number" class="form-control" id="max_weight" placeholder="">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="control-label col-md-4" for="total_cost">Total Cost:</label>
+              <div class="col-md-8">
+                <input type="number" class="form-control" id="total_cost" placeholder="">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="control-label col-md-4" for="comp_end_date">Competition End Date:</label>
+              <div class="col-md-8">
+                <input type="date" class="form-control" id="comp_end_date" placeholder="">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="control-label col-md-4" for="image">Image:</label>
+              <div class="col-md-8">
+                <input type="file" class="form-control" id="image" name="image" accept="image/*">
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="submit" id="robot_submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
+
+  <script type="text/javascript" src="js/robot/robot.js"></script>
+
+</body>
+
+</html>

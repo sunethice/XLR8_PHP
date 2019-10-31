@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>XLR8 - Dashboard</title>
+  <link href="css/sb-admin.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+
+  <!-- Custom styles for this template-->
+
+
+</head>
+
+<body id="page-top">
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="index.html">XLR8</a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <li class="nav-item dropdown no-arrow"  aria-expanded="false">
+
+      </li>
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="demo"></span>
+
+          <i class="fas fa-user-circle fa-fw" title="User profile" data-toggle="tooltip">
+          </i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          <a class="dropdown-item" data-toggle="modal" data-target="#myModal">Settings</a>
+
+          <a class="dropdown-item" href="wishlist.html">WishList</a>
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
+
+  <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="sidebar navbar-nav sidebar-dark accordion" id="sidebar">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+
+          <hr class="sidebar-divider my-0">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="inventoryStore.html" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-fw fa-tools"></i>
+              <span>Inventory Store</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+             <h6 class="dropdown-header">Store:</h6>
+             <a class="dropdown-item" href="inventoryStore.html">Go to Store</a>
+             <a class="dropdown-item" href="#.html"></a>
+             <a class="dropdown-item" href="#.html"></a>
+             <div class="dropdown-divider"></div>
+             <h6 class="dropdown-header">Parts:</h6>
+             <a class="dropdown-item" href="parts.html">View all Parts</a>
+             <a class="dropdown-item" href="parts.html">View Part resources</a>
+             <a class="dropdown-item" href="#.html"></a>
+           </div>
+          </li>
+
+          <hr class="sidebar-divider my-0">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="robots.html" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-robot"></i>
+              <span>Robots</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+               <a class="dropdown-item" href="robots.html">Robots</a>
+               <a class="dropdown-item" href="#">F2</a>
+               <a class="dropdown-item" href="#">F3</a>
+           </div>
+          </li>
+
+          <hr class="sidebar-divider my-0">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="components.html" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-fw fa-plus-circle"></i>
+              <span>Components</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+              <a class="dropdown-item" href="components.html">Components</a>
+              <a class="dropdown-item" href="#">F2</a>
+              <a class="dropdown-item" href="#">F3</a>
+            </div>
+          </li>
+
+          <hr class="sidebar-divider my-0">
+
+          <li class="nav-item">
+            <a class="nav-link" href="wishlist.html">
+              <i class="fas fa-fw fa-star"></i>
+              <span>My Wishlist</span></a>
+          </li>
+
+          <hr class="sidebar-divider my-0">
+          <li class="nav-item dropdown" style="display: none;">
+            <a class="nav-link dropdown-toggle" href="user-request.html" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-fw fa-user"></i>
+              <span>Admin</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+              <a class="dropdown-item" href="user-request.html">User requests</a>
+              <a class="dropdown-item" href="users.html">Users</a>
+              <a class="dropdown-item" href="wishlistRequests.html">Wishlist requests</a>
+              <a class="dropdown-item" href="partDeletionRequests.html">Part delete requests</a>
+              <a class="dropdown-item" href="robotDeletionRequests.html">Robot delete requests</a>
+            </div>
+          </li>
+        </ul>
+
+
+    <div id="content-wrapper" >
+
+    <div id="content-wrapper" >
+      <!--style="background-image: url(images/background-login.jpg);background-size:cover;background-repeat:no-repeat;background-position:center center"
+-->
+      <div class="container-fluid" >
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+          </li>
+
+        </ol>
+
+    <div class = "row">
+      <div class = "col-md-8">
+        <!-- Parts Summary -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Inventory Store - Summary</h6>
+          </div>
+          <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+
+                  <div class="card border-left-primary shadow h-100 py-2">
+                      <div class="card-body">
+                        <a href="parts.html" class="nounderline" data-toggle="tooltip" data-placement="bottom" title="Total Number of Parts in the Inventory System">
+                        <div class="row no-gutters align-items-center">
+                          <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Parts</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="totParts"></div>
+                          </div>
+                          <div class="col-auto">
+                            <i class="fas fa-tools fa-2x text-gray-300"></i>
+                          </div>
+                        </div>
+                      </a>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                      <a href="parts.html" class="nounderline" data-toggle="tooltip" data-placement="bottom" title="Total Number of Components in the Inventory System">
+                       <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Components</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800" id = "totComponents"></div>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fas fa-charging-station fa-2x text-gray-300"></i>
+                        </div>
+                      </div>
+                    </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card border-left-info shadow h-100 py-2">
+                  <div class="card-body">
+                    <a href="robots.html" class="nounderline" data-toggle="tooltip" data-placement="bottom" title="Total Number of Robots in the Inventory System">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Robots</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="totRobots"></div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-robot fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+    <div class ="col-md-4">
+    <!-- Pie Chart -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Parts Distribution</h6>
+          <div class="dropdown no-arrow toright" >
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+              <div class="dropdown-header">Dropdown Header:</div>
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="chart-pie pt-4 pb-2">
+            <canvas id="myPieChart" data-toggle="tooltip" title="This pie chart demonstrates the distribution of used, new and currently unavailable parts in the database"></canvas>
+          </div>
+          <div class="mt-4 text-center small">
+            <span class="mr-2">
+              <i class="fas fa-circle text-primary"></i> New
+            </span>
+            <span class="mr-2">
+              <i class="fas fa-circle text-warning"></i> Used
+            </span>
+            <span class="mr-2">
+              <i class="fas fa-circle text-danger"></i> Unavailable
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end row -->
+
+  <div class = "row">
+    <div class = "col-md-12">
+  <!-- Robot Summary -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Current Project : ROBOT <span id="projectTitle"></span></h6>
+        </div>
+        <div class="card-body">
+          <h4 class="small font-weight-bold">Timeline <span class="float-right" id="timelineTag">0%</span></h4>
+          <div class="progress mb-4" data-toggle="tooltip" title="Current progress of the robot build">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100" id="timeline"></div>
+          </div>
+          <h4 class="small font-weight-bold">Progress <span class="float-right"></span></h4>
+          <div class="row">
+            <div class="col-md-6 low high">
+              <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body" data-toggle="tooltip" data-placement="left" title="Comparison of cost currently spent on Robot with the Maximum cost limit">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Current Cost <span id="alertedC"> </span></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800" id="totCost"> </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-md-6 low high">
+            <div class="card border-left-success shadow h-100 py-2">
+              <div class="card-body" data-toggle="tooltip"  data-placement="left" title="Comparison of current Weight of Robot with the Maximum weight limit">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Current Weight <span id="alertedW"> </span></div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="totWeight">kg </div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-weight fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- row -->
+      </div>
+    </div> <!-- end card-->
+  </div>
+</div> <!-- end second row -->
+
+  <div class="card mb-3">
+    <div class="card-header bg-info" >
+      <i class="fas fa-robot"></i>
+      Recent Work</div>
+      <div class="card-body">
+      <div class="table-responsive">
+      <table class="table table-bordered" id="robotTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Season</th>
+            <th>Weight</th>
+            <th>Cost</th>
+            <th>End date</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Name</th>
+            <th>Season</th>
+            <th>Weight</th>
+            <th>Cost</th>
+            <th>End date</th>
+            <th>Created</th>
+          </tr>
+        </tfoot>
+        <tbody>
+
+
+
+        </tbody>
+      </table>
+     </div>
+    </div>
+
+    </div>
+    <div class="card mb-3">
+      <div class="card-header bg-success" > <!--style="background-color:tomato" -->
+        <i class="fas fa-tools"></i>
+        Parts transaction history</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Weight</th>
+                <th>Action</th>
+                <th>Date</th>
+                <th>Vendor</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Weight</th>
+                <th>Action</th>
+                <th>Date</th>
+                <th>Vendor</th>
+            </tr>
+            </tfoot>
+            <tbody id="partsBody">
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+        <!-- Area Chart
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-chart-area"></i>
+            Area Chart Example</div>
+          <div class="card-body">
+            <canvas id="myAreaChart" width="100%" height="30"></canvas>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+        Example-->
+
+        <!-- DataTables Example -->
+
+      <!-- /.container-fluid -->
+
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © XLR8 2019</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave XLR 8 - FRC?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <button class="btn btn-primary" onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h4 class="modal-title"><i class="fas fa-fw fa-user"></i>User Profile</h4>
+        </div>
+        <form method="POST" action="server/updateUser.php" enctype="multipart/form-data" onsubmit="return validateUserUpdate(this);">
+        <div class="modal-body">
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-2">
+              <label >Name</label>
+              </div>
+              <div class="col-md-5">
+              <input id="fName" name="fName" class="form-control" required="required">
+              </div>
+              <div class="col-md-5">
+                  <input id="lName" name="lName" class="form-control" required="required">
+                  </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+                <div class="col-md-2">
+                <label >Username</label>
+                </div>
+                <div class="col-md-10">
+                <input id="username" name="username" class="form-control" required="required">
+                </div>
+            </div>
+          </div>
+          <div class="form-group">
+              <div class="row">
+                  <div class="col-md-2">
+                  <label >Team</label>
+                  </div>
+                  <div class="col-md-10">
+                  <input id="team" name="team" class="form-control">
+                  </div>
+              </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2">
+                    <label >DOB</label>
+                    </div>
+                    <div class="col-md-10">
+                    <input id="dob" name="dob" class="form-control" placeholder="DD/MM/YYYY">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2">
+                    <label>Address</label>
+                    </div>
+                    <div class="col-md-10">
+                    <input id="address" name="address" class="form-control" >
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2">
+                    <label>Contact</label>
+                    </div>
+                    <div class="col-md-10">
+                    <input id="contactNo" name="contactNo" class="form-control" >
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2">
+                    <label>Institute</label>
+                    </div>
+                    <div class="col-md-10">
+                    <input id="institute" name="institute" class="form-control" >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-success" value="Change" >
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+      </div>
+
+    </div>
+  </div>
+  <div id="wishlist" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h4 class="modal-title"><i class="fas fa-fw fa-user"></i>My whish list</h4>
+        </div>
+        <table id="wishlist">
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
+
+  <!-- Sweet alerts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+  <script type="text/javascript" src="js/alerts.js" ></script>
+
+  <script src="js/dashboard/dashboard.js"></script>
+  <script src="js/dashboard/charts.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+.modal-xlg {
+    max-width: 80% !important;
+}
+
+.dataTables_custom{
+    float: left ;
+}
+
+.custom {
+    font-size: 12px;
+    font-family: Arial;
+}
+
+.TPopHdrWrap {
+    float: left;
+    padding: 0 10px;
+    position: relative;
+    width: 100%;
+}
+
+.TPopHdrMain {
+    border-bottom: 1px solid #e1e1e1;
+    float: left;
+    min-height: 36px;
+    padding: 16px 0;
+    position: relative;
+    width: 100%;
+}
+
+.TPopAdd {
+    background-position: center -653px;
+    cursor: pointer;
+    float: right;
+    /* height: 16px; */
+    position: absolute;
+    right: 0px;
+    top: 22px;
+    /* width: 20px; */
+}
+
+.TFont6 {
+    font-size: 20px;
+}
+
+.TPopBodyWrap.FullHeight {
+    height: calc(100% - 35px) !important;
+    height: -webkit-calc(100% - 35px) !important;
+}
+
+.TPopBodyWrap {
+    height: -webkit-calc(100% - 100px);
+    float: left;
+    height: calc(100% - 100px);
+    overflow-y: auto;
+    padding: 15px 20px 0;
+    width: 100%;
+}
+
+.TUCNoDataWrap {
+    margin: 6% auto 0;
+    width: 500px;
+}
+
+.TUCNoDataImg.data {
+    background-position: 0 -360px;
+}
+
+.TUCNoDataImg {
+    background-image: url(../../images/components/nodata.png);
+    background-position: 0 0;
+    height: 60px;
+    margin: 0 auto 5px;
+    width: 80px;
+}
+
+.TUCNoDataTxt1 {
+    clear: both;
+    display: block;
+    text-align: center;
+}
+
+.TUCNoDataTxt2 {
+    clear: left;
+    display: block;
+    text-align: center;
+}
+
+.TFont2 {
+    font-size: 13px;
+}
+
+.TFont4 {
+    font-size: 16px;
+}
+
+.TFCol4 {
+    color: #999;
+}
+
+.TFCol10 {
+    color: #acafb6;
+}
+
+
+.danger {
+    background-color: #ffdddd;
+    border-left: 6px solid #f44336;
+}
+
+.note{
+    margin: 15px 0px;
+}
+/* notes window bottom */
+.type_msg {
+    /* border-top: 1px solid #c4c4c4; */
+    position: relative;
+    width: 100%;
+}
+
+.input_msg_write input {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    color: #4c4c4c;
+    font-size: 15px;
+    min-height: 48px;
+    width: 100%;
+}
+.input_msg_write input:focus{
+    outline: 0;
+}
+
+.msg_send_btn {
+    background: #05728f none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 17px;
+    height: 33px;
+    position: absolute;
+    right: 0;
+    top: 11px;
+    width: 33px;
+}
+

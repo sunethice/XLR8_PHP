@@ -1,0 +1,28 @@
+/* Added a new column to category table
+@date 22/04/2019
+@author Yik
+ALTER TABLE `category`
+ADD `category_name` VARCHAR(255) NOT NULL AFTER `category_id`;
+
+INSERT INTO `category` (`category_id`, `category_name`, `level`, `description`, `parent`)
+VALUES
+('CAT_1', 'Mechanical', '1', '', ''),
+('CAT_2', 'Electrical', '1', '', ''),
+('CAT_3', 'Building Materials', '2', '', 'CAT_1'),
+('CAT_4', 'Gearboxes', '2', '', 'CAT_1'),
+('CAT_5', 'Hardware', '2', '', 'CAT_1'),
+('CAT_6', 'Motion', '2', '', 'CAT_1'),
+('CAT_7', 'Pneumatics', '2', '', 'CAT_1'),
+('CAT_8', 'Wheels', '2', '', 'CAT_1'),
+('CAT_9', 'Bumper', '3', '', 'CAT_3'),
+('CAT_10', 'Drive Base', '3', '', 'CAT_3'),
+('CAT_11', 'Bevel', '3', '', 'CAT_4'),
+('CAT_12', 'Planetory', '3', '', 'CAT_4');
+*/
+
+ALTER TABLE `part_master` ADD `available_qty` INT NOT NULL AFTER `total_qty`;
+ALTER TABLE `part_transaction` ADD `user_id` VARCHAR(10) NOT NULL AFTER `part_id`;
+
+ALTER TABLE `part_transaction` ADD CONSTRAINT `FK_T_USER_ID` FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `category` ADD `image` VARCHAR(255) NULL AFTER `parent`;
