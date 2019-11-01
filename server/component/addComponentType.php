@@ -1,8 +1,7 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
-// require_once('../config.php'); //by using my code
+require_once('../config.php'); 
 require_once('../xlr8_utils.php');
-require_once('../dbConnect.php');
 session_start();
 
 $response = null;
@@ -13,10 +12,9 @@ if (isset($_POST['componentType']))
     $response = new stdClass();
     $compTypeID = createUniqueId($con, 'component_type');
 
-    // $dbInstance = DBManager::cpGetInstance(); //by using my code
+    $dbInstance = DBManager::cpGetInstance(); 
     $sql = "INSERT INTO `component_type`(`component_type_id`,`type_name`) VALUES ('$compTypeID','$component_Type')";
-    //if($dbInstance->cpDBQuery($sql)){
-    if(mysqli_query($con,$sql)){
+    if($dbInstance->cpDBQuery($sql)){
         $response->success = true;
         $response->message = "Records inserted successfully.";
     } else{
@@ -28,6 +26,6 @@ else
 {
     $response->success = false;
 }
-$con->close();
+// $con->close();
 echo(json_encode($response));
 ?>

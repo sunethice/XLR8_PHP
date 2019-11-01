@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
 require_once('../config.php'); // by using my code
-require_once('../dbConnect.php');
+// require_once('../dbConnect.php');
 require_once('../xlr8_utils.php');
 session_start();
 
